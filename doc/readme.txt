@@ -1,20 +1,33 @@
 Agile Web Development With Ruby On Rails 3rd
 =============================================
 
+2010.10.18
+-----------
+
+   1. 产生测试数据
+
+   jruby script/generate migration add_test_data
+   编辑add_test_data.rb
+   up..
+   --生效
+   rake db:migrate
+
+   2. p95
+
 2010.10.17
 ------------
 
    1. ENTERPRISE RECIPES WITH RUBY AND RAILS
 
    2. First steps in Rails: How to render a list of records from a table
-   
+
    http://snippets.dzone.com/posts/show/12487?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed:+dzone/snippets+(DZone+/+Snippets)
 
-   3. Depot 
+   3. Depot
 
       --采用sqlite3,不需要手工生成
       rake db:create RAILS_ENV='development'
-      
+
       jruby script/generate scaffold product title:string description:text image_url:string
       rake db:migrate
       --增加字段
@@ -28,7 +41,7 @@ Agile Web Development With Ruby On Rails 3rd
    4. p83
 
    5. 增加git仓库 http://github.com/yangjiandong/jrails
-   
+
    git remote add origin git@github.com:yangjiandong/jrails.git
 
    git push origin master:refs/heads/master
@@ -62,8 +75,8 @@ Agile Web Development With Ruby On Rails 3rd
       rails _2.3.10_ ce_demo
 
       database.yml 改为jdbcsqlite3
-      jruby script/server 
-   
+      jruby script/server
+
    2. p52
 
    --END
