@@ -1,0 +1,1 @@
+jruby --debug -S script/server --debugger
