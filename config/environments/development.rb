@@ -5,6 +5,13 @@
 # since you don't have to restart the webserver when you make code changes.
 config.cache_classes = false
 
+# http://railsillustrated.com/logger-tricks.html
+if $0 == "irb"
+  config.logger = Logger.new(STDOUT)
+else
+  config.logger = Logger.new(Rails.root.join("log",Rails.env + ".log"),3,5*1024*1024)  
+end
+
 config.log_level = :debug
 
 #http://www.javaeye.com/topic/767333
