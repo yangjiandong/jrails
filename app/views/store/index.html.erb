@@ -1,0 +1,17 @@
+<h1>商品目录</h1>
+
+<% for product in @products %>
+    <div class="entry">
+    <%= image_tag(product.image_url) %>
+    <h3><%=h product.title %></h3>
+    <%= product.description %>
+    <div class="price-line">
+    <span class="price"><%= number_to_currency(product.price,
+                                                :unit => "&pound;",
+                                                :separator => ",",
+                                                :delimiter => "") %>
+                                            </span>
+    <%= button_to "放入购物车", :action => 'add_to_cart', :id => product %>
+    </div>
+    </div>
+<% end %>

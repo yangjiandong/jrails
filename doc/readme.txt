@@ -1,6 +1,29 @@
 Agile Web Development With Ruby On Rails 3rd
 =============================================
 
+2010.10.19
+-----------
+
+   1. jruby --debug script/server --debugger
+
+   2. session save into database
+   --自动生成session表
+   rake db:sessions:create
+   rake db:migrate
+
+   --2.2 ror environment.rb
+   config.action_controller.session_store = :active_record_store
+   --2.3 ror config/initializers/session_store.rb
+   ActionController::Base.session_store = :active_record_store
+
+   3. add_to_cart 报错
+   NoMethodError in StoreController#add_to_cart
+   --删除后台sessin表记录即可
+
+   http://forums.pragprog.com/forums/66/topics/1663
+
+   4. p110
+
 2010.10.18
 -----------
 
