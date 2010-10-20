@@ -1,0 +1,66 @@
+ROR - 解决方案
+================
+
+   1. Custom SQL with Rails
+
+Listing 12. Custom SQL with ActiveRecord example
+sql = "SELECT profession,
+              AVG(age) as average_age,  
+              AVG(accident_count) 
+         FROM persons 
+        GROUP 
+           BY profession"
+
+Person.find_by_sql(sql).each do |row|   
+  puts "#{row.profession}, " <<
+       "avg. age: #{row.average_age}, " <<
+       "avg. accidents: #{row.average_accident_count}"
+end
+
+This script would produce results like Listing 13.
+Listing 13. Custom SQL with ActiveRecord output
+
+  Programmer, avg. age: 18.010, avg. accidents: 9
+  System Administrator, avg. age: 22.720, avg. accidents: 8
+
+Of course, that's a simple case. You can imagine,
+though, how you can extend this example to SQL statements of any complexity. 
+You can also run other types of SQL statements, such as ALTER TABLE statements, 
+using the ActiveRecord::Base.connection.execute method, as shown in Listing 14.
+Listing 14. Custom non-finder SQL with ActiveRecord
+  ActiveRecord::Base.connection.execute "ALTER TABLE some_table CHANGE COLUMN..."
+
+Most schema manipulations, such as adding and removing columns,
+can be done using Rails's built-in methods. 
+But the ability to execute arbitrary SQL code is available if you need it. 
+
+
+   2. database store produce
+
+
+   3. cron job
+
+
+   4. ruby on rails 连接多个数据库
+
+首先在database.yml中加入以下代码，其中cg_clone是外部等待使用的数据库。
+cg_clone:
+adapter: mysql
+database: cg_clone
+username: root
+password: 
+host: localhost 
+
+假如在cg_clone中有一张表叫contracts，那么生成Contract类。并用establish_connection来声明建立到哪个数据库的连接：
+
+class Contract < ActiveRecord::Base
+establish_connection :cg_clone
+end
+
+这样我们在控制器中就可以使用Contract类了，如：
+
+def contract_list
+   @contracts=Contract.find_all
+end
+
+   --END
