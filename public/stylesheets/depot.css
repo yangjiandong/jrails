@@ -203,7 +203,8 @@ h1 {
 
 /* Styles for the cart in the sidebar */
 #cart, #cart table {
-font-size: smaller;
+/* font-size: smaller; */
+font-size: 80%;
 color: white;
 }
 #cart table {

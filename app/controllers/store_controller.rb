@@ -8,9 +8,14 @@ class StoreController < ApplicationController
     pr = Product.find(params[:id])
     logger.debug 'product:' + pr.title
     @cart = find_cart
-    @cart.add_product(pr)
-#    ajax 不跳转
-    redirect_to_index
+    @current_item = @cart.add_product(pr)
+    #页面直接跳转
+    #redirect_to_index
+
+    #rjs 页面无闪刷新 add_to_cart.js.rjs
+    respond_to do |format|
+      format.js
+    end
   rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to access invalid product #{params[:id]}")
     redirect_to_index("Invalid product")
