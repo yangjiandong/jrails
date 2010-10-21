@@ -1,10 +1,20 @@
 Agile Web Development With Ruby On Rails 3rd
 =============================================
 
+2010.10.21
+-----------
+
+   1. 清除session
+   rake db:sessions:clear
+
+   2. trace log -- 很有用
+   tail -f log/development.log
+
 2010.10.20
 -----------
 
    1. Mongrel
+   jruby -S gem install mongrel
 
 2010.10.19
 -----------
