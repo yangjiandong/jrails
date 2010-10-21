@@ -10,6 +10,8 @@ Agile Web Development With Ruby On Rails 3rd
    2. trace log -- 很有用
    tail -f log/development.log
 
+   3. p136
+
 2010.10.20
 -----------
 
