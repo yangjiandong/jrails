@@ -1,6 +1,17 @@
 Agile Web Development With Ruby On Rails 3rd
 =============================================
 
+2010.10.21
+-----------
+
+   1. time jruby script/server
+   --记录运行时间
+
+   2. 更快的server
+   http://jetty-rails.rubyforge.org/
+   jruby -S gem install jetty-rails
+   jruby -S jetty_rails
+
 2010.10.20
 -----------
 
