@@ -1,6 +1,15 @@
 Agile Web Development With Ruby On Rails 3rd
 =============================================
 
+2010.10.22
+----------
+
+   1. 增加 order, line_items
+   rake db:migrate
+
+   2. sqlite3 -line db/development.sqlite3
+   会以比较优雅的格式显示查询
+
 2010.10.21
 -----------
 

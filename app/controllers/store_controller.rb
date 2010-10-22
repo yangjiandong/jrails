@@ -14,7 +14,9 @@ class StoreController < ApplicationController
 
     #rjs 页面无闪刷新 add_to_cart.js.rjs
     respond_to do |format|
-      format.js
+      format.js if request.xhr?
+      # 如果浏览器不支持 javascript
+      format.html {redirect_to_index}
     end
   rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to access invalid product #{params[:id]}")
@@ -25,6 +27,29 @@ class StoreController < ApplicationController
     session[:cart] = nil
     #redirect_to_index("Your cart is currently empty")
     redirect_to_index
+  end
+
+  def checkout
+    @cart = find_cart
+    if @cart.items.empty?
+      logger.debug "--> Your cart is empty "
+      redirect_to_index("Your cart is empty")
+    else
+      logger.debug "--> checkout order new. "
+      @order=Order.new
+    end
+  end
+
+  def save_order
+    @cart = find_cart
+    @order = Order.new(params[:order])
+    @order.add_line_items_from_cart(@cart)
+    if @order.save
+      session[:cart] = nil
+      redirect_to_index("Thank you for your order")
+    else
+      render :action => 'checkout'
+    end
   end
 
   private
