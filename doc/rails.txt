@@ -63,6 +63,10 @@ def contract_list
    @contracts=Contract.find_all
 end
 
+   --以上方案有问题
+
+   建立一个继承自ActiveRecord::Base的ExternalTable类，在ExternalTable类中使用establish_connection方法，其他需要使用外部表的model类都继承此ExternalTable类，就可以避免多个model连接数据库的问题了。 
+   请参考RailsRecipe中的Recipe 15
 
    5. Showing SQL statements in the Rails console
 
@@ -108,5 +112,24 @@ end
 
    jruby -S gem install request-log-analyzer
    request-log-analyzer log/production.log
+
+
+   9. ror 代码保护
+
+      a. jruby还有一个好处，可以自己对ruby代码做加密，只要修改一下jruby的/org/jruby/lexer/yacc/ByteListLexerSource.java
+
+      b. warbler-AOT
+         
+	 --不是官方版
+	 git://github.com/crazycode/warbler.git
+
+         --warbler 官方版 http://caldersphere.rubyforge.org/warbler/
+         http://github.com/nicksieger/warbler
+
+
+   10. jruby-rack example
+
+   http://github.com/nicksieger/jruby-rack/tree/master/examples/
+
 
    --END
