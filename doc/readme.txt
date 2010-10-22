@@ -11,11 +11,21 @@ Agile Web Development With Ruby On Rails 3rd
    http://jetty-rails.rubyforge.org/
    jruby -S gem install jetty-rails
    jruby -S jetty_rails
+   --运行有问题
+
+   3. 清除session
+   rake db:sessions:clear
+
+   4. trace log -- 很有用
+   tail -f log/development.log
+
+   5. p136
 
 2010.10.20
 -----------
 
    1. Mongrel
+   jruby -S gem install mongrel
 
 2010.10.19
 -----------

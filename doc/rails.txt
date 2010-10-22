@@ -5,13 +5,13 @@ ROR - 解决方案
 
 Listing 12. Custom SQL with ActiveRecord example
 sql = "SELECT profession,
-              AVG(age) as average_age,  
-              AVG(accident_count) 
-         FROM persons 
-        GROUP 
+              AVG(age) as average_age,
+              AVG(accident_count)
+         FROM persons
+        GROUP
            BY profession"
 
-Person.find_by_sql(sql).each do |row|   
+Person.find_by_sql(sql).each do |row|
   puts "#{row.profession}, " <<
        "avg. age: #{row.average_age}, " <<
        "avg. accidents: #{row.average_accident_count}"
@@ -24,15 +24,15 @@ Listing 13. Custom SQL with ActiveRecord output
   System Administrator, avg. age: 22.720, avg. accidents: 8
 
 Of course, that's a simple case. You can imagine,
-though, how you can extend this example to SQL statements of any complexity. 
-You can also run other types of SQL statements, such as ALTER TABLE statements, 
+though, how you can extend this example to SQL statements of any complexity.
+You can also run other types of SQL statements, such as ALTER TABLE statements,
 using the ActiveRecord::Base.connection.execute method, as shown in Listing 14.
 Listing 14. Custom non-finder SQL with ActiveRecord
   ActiveRecord::Base.connection.execute "ALTER TABLE some_table CHANGE COLUMN..."
 
 Most schema manipulations, such as adding and removing columns,
-can be done using Rails's built-in methods. 
-But the ability to execute arbitrary SQL code is available if you need it. 
+can be done using Rails's built-in methods.
+But the ability to execute arbitrary SQL code is available if you need it.
 
 
    2. database store produce
@@ -48,8 +48,8 @@ cg_clone:
 adapter: mysql
 database: cg_clone
 username: root
-password: 
-host: localhost 
+password:
+host: localhost
 
 假如在cg_clone中有一张表叫contracts，那么生成Contract类。并用establish_connection来声明建立到哪个数据库的连接：
 
@@ -104,5 +104,9 @@ end
    http://guides.rubyonrails.org/debugging_rails_applications.html
 
 
+   8. log 分析
+
+   jruby -S gem install request-log-analyzer
+   request-log-analyzer log/production.log
 
    --END
