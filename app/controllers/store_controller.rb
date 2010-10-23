@@ -1,5 +1,9 @@
 class StoreController < ApplicationController
   def index
+    # jruby --debug -S script/server --debugger
+    #require "rubygems"
+    #require "ruby-debug"
+    #debugger
     @products = Product.find_products_for_sale
     @cart = find_cart
   end
