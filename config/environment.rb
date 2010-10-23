@@ -45,4 +45,7 @@ Rails::Initializer.run do |config|
   # for ror 2.2
   #config.action_controller.session_store = :active_record_store
 
+  #Rails得到主机名的中间件
+  #http://hlee.javaeye.com/blog/452049
+  config.middleware.use "Hostname", %"hostname".chomp
 end
