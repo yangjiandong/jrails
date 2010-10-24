@@ -1,8 +1,16 @@
+#---
+# Excerpted from "Agile Web Development with Rails, 3rd Ed.",
+# published by The Pragmatic Bookshelf.
+# Copyrights apply to this code. It may not be used to create training material,
+# courses, books, articles, and the like. Contact us if you are in doubt.
+# We make no guarantees that this code is fit for any purpose.
+# Visit http://www.pragmaticprogrammer.com/titles/rails3 for more book information.
+#---
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.all
+    @users = User.find(:all, :order => :name)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,11 +52,14 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
+        flash[:notice] = "User #{@user.name} was successfully created."
+        format.html { redirect_to(:action=>'index') }
+        format.xml  { render :xml => @user, :status => :created,
+                             :location => @user }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @user.errors,
+                             :status => :unprocessable_entity }
       end
     end
   end
@@ -60,11 +71,13 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        flash[:notice] = "User #{@user.name} was successfully updated."
+        format.html { redirect_to(:action=>'index') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @user.errors,
+                             :status => :unprocessable_entity }
       end
     end
   end

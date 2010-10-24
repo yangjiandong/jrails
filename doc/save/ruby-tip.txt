@@ -1,0 +1,19 @@
+RUBY TIP
+============
+
+2010.10.24
+-----------
+
+   1. ruby 变量
+
+   http://www.blogjava.net/xvridan/archive/2007/02/08/98750.html
+
+   $          全局变量
+   @          实变量
+   [a-z]      局部变量
+   [A-Z]      常量
+
+   唯一的例外是Ruby的伪变量:self,它永远指向当前正执行着的对象或未初始化变量的空值(meaningless value)nil
+
+
+   --END
