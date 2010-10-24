@@ -1,4 +1,7 @@
 class StoreController < ApplicationController
+  
+  before_filter :find_cart, :except => :empty_cart
+  
   def index
     # jruby --debug -S script/server --debugger
     #require "rubygems"
@@ -58,7 +61,7 @@ class StoreController < ApplicationController
 
   private
   def find_cart
-    session[:cart] ||= Cart.new
+    @cart = (session[:cart] ||= Cart.new)
   end
 
   def redirect_to_index(msg=nil)
