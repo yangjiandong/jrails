@@ -7,6 +7,24 @@ Agile Web Development With Ruby On Rails 3rd
    1. 这几天晚上睡觉蚊子特多，昨天大概打了十多只，11点躺下，一直忙到4点，没睡安稳。
       外面下雨，没出去。下午在家看下载的电影，守法公民、绑票，玩转21点。
 
+   2. rest
+   jruby script/generate controller info who_bought
+   http://localhost:3000/info/who_bought/1
+   --xml,
+   --jruby -S gem install builder
+
+   curl -H "Accept: application/xml" http://localhost:3000/info/who_bought/1
+   --xml 输出
+
+   curl -H "Accept: application/xml" http://localhost:3000/info/who_bought_auto/1
+   --自动产生xml
+
+   curl --silent http://localhost:3000/info/who_bought_atom/1.atom
+   --atom feed
+
+   curl -H "Accept: application/json" http://localhost:3000/info/who_bought_json/1
+   --json
+
 2010.10.22
 ----------
 
