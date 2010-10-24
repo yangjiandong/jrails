@@ -55,11 +55,11 @@ class UsersController < ApplicationController
         flash[:notice] = "User #{@user.name} was successfully created."
         format.html { redirect_to(:action=>'index') }
         format.xml  { render :xml => @user, :status => :created,
-                             :location => @user }
+          :location => @user }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors,
-                             :status => :unprocessable_entity }
+          :status => :unprocessable_entity }
       end
     end
   end
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors,
-                             :status => :unprocessable_entity }
+          :status => :unprocessable_entity }
       end
     end
   end
@@ -86,7 +86,13 @@ class UsersController < ApplicationController
   # DELETE /users/1.xml
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+
+    begin
+      flash[:notice] = "用户 #{@user.name} 被删除"
+      @user.destroy
+    rescue Exception => e
+      flash[:notice] = e.message
+    end
 
     respond_to do |format|
       format.html { redirect_to(users_url) }
