@@ -25,6 +25,11 @@ Agile Web Development With Ruby On Rails 3rd
    curl -H "Accept: application/json" http://localhost:3000/info/who_bought_json/1
    --json
 
+   3. test
+   p212
+
+   4. working with the rails framework
+
 2010.10.22
 ----------
 
