@@ -1,11 +1,57 @@
 Agile Web Development With Ruby On Rails 3rd
 =============================================
 
+2010.10.25
+----------
+
+   1. 自定义rake
+   lib\tasks
+   rake db:schema_migrations
+
+   2. 绑定所需rails
+   rake rails:freeze:gems
+   --好像有点问题，会自动绑定系统最新rails版本
+
+   3. 建立分模块控制器
+   jruby script/generate controller Admin::Book index show
+
+   4. 指定主键
+   self.primary_key = "isbn"
+   后台主键指定名为isbn,代码中还是用id
+   book = Lbook.new
+   book.id = "0-123-5"
+   ..
+   book.save
+   ..
+   book = Lbook.find("0-123-5")
+   ..
+
+   composite primary keys: 混合主键
+
+   5. migrations: using native SQL
+   p308
+
+   6. sql
+   find_by_sql
+   p337
+
+   7. magic column names
+   p355
+
+   partial updates and dirty bits
+   p355
+   -- 感觉很有用,可以得到字段修改信息
+
+   Acts as tree
+   p390
+
+   8. 大体浏览完ROR3rd,下部准备以typo为学习目标
+
 2010.10.24
 ----------
 
-   1. 这几天晚上睡觉蚊子特多，昨天大概打了十多只，11点躺下，一直忙到4点，没睡安稳。
-      外面下雨，没出去。下午在家看下载的电影，守法公民、绑票，玩转21点。
+   1. 增加用户
+   User.create(:name=>'dave',:password=>'dave',:password_confirmation=>'dave')
 
    2. rest
    jruby script/generate controller info who_bought
