@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of     :name
   validates_uniqueness_of   :name
+  validates_format_of :name, :with => /^[A-Za-z\d_]+$/, :message => "can only be alphanumeric with no spaces"
 
   attr_accessor :password_confirmation
   validates_confirmation_of :password
