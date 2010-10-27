@@ -10,6 +10,22 @@ ROR
 
    2. rails3
 
+   3. seeds.rb
+   种子数据
+   rake db:seed
+
+   4. p103
+   jruby task not supported by jdbcsqlite3
+   --解决
+   http://blog.nicksieger.com/articles/2009/10/12/fresh-0-9-2-activerecord-jdbc-adapter-release
+   --rails2
+   jruby script/generate jdbc
+   --rails3
+   rails g jdbc
+
+   jruby1.5.3 下 rake test 报错
+   git clone git://github.com/jruby/jruby.git jruby.git
+
 
 2010.10.25
 ----------
