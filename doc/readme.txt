@@ -9,6 +9,12 @@ ROR
    git push origin ror.2.3.10
 
    2. rails3
+   jruby -S gem install tzinfo builder memcache-client rack rack-test rack-mount erubis mail text-format thor bundler i18n --no-ri --no-rdoc
+   jruby -S gem install rails --no-rdoc --no-ri
+   jruby -S gem install jruby-openssl jdbc-sqlite3 --no-rdoc --no-ri
+   
+   gem install activerecord-jdbc-adapter
+   gem install activerecord-jdbcsqlite3-adapter
 
    3. seeds.rb
    种子数据
@@ -24,8 +30,7 @@ ROR
    rails g jdbc
 
    jruby1.5.3 下 rake test 报错
-   git clone git://github.com/jruby/jruby.git jruby.git
-
+   --升级到git 版本, 重新安装 rails3 ,出现其他问题
 
 2010.10.25
 ----------
