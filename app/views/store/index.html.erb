@@ -11,7 +11,7 @@
                                                 :separator => ",",
                                                 :delimiter => "") %>
                                             </span>
-    <% form_remote_tag :url => { :action => 'add_to_cart', :id => product } do %>
+    <% form_tag url_for ( :action => 'add_to_cart'), :id => product, :remote=>true  do %>
         <%= submit_tag "Add to Cart" %>
     <% end %>
     <!--

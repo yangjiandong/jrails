@@ -1,6 +1,16 @@
 ROR
 =====
 
+2010.10.27
+----------
+
+   1. 建立branch ror.2.3.10
+   git branch ror.2.3.10
+   git push origin ror.2.3.10
+
+   2. rails3
+
+
 2010.10.25
 ----------
 
