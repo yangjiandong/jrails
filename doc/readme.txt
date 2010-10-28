@@ -1,36 +1,53 @@
-ROR
-=====
+ruby1.9.2+ROR3.0.1
+==================
 
-2010.10.27
+2010.10.28
 ----------
 
-   1. 建立branch ror.2.3.10
-   git branch ror.2.3.10
-   git push origin ror.2.3.10
+   1. rails3
+   gem install tzinfo builder memcache-client rack rack-test rack-mount erubis mail text-format thor bundler i18n --no-ri --no-rdoc
+   gem install rails --no-rdoc --no-ri
 
-   2. rails3
-   jruby -S gem install tzinfo builder memcache-client rack rack-test rack-mount erubis mail text-format thor bundler i18n --no-ri --no-rdoc
-   jruby -S gem install rails --no-rdoc --no-ri
-   jruby -S gem install jruby-openssl jdbc-sqlite3 --no-rdoc --no-ri
-   
-   gem install activerecord-jdbc-adapter
-   gem install activerecord-jdbcsqlite3-adapter
-
-   3. seeds.rb
+   2. seeds.rb
    种子数据
    rake db:seed
 
-   4. p103
-   jruby task not supported by jdbcsqlite3
-   --解决
-   http://blog.nicksieger.com/articles/2009/10/12/fresh-0-9-2-activerecord-jdbc-adapter-release
-   --rails2
-   jruby script/generate jdbc
-   --rails3
-   rails g jdbc
+2010.10.27
+-----------
 
-   jruby1.5.3 下 rake test 报错
-   --升级到git 版本, 重新安装 rails3 ,出现其他问题
+   1. 2010.10.27
+
+   ruby 1.9.2
+   gem -v (1.3.7)
+   gem install sqlite3-ruby bundler rspec --no-rdoc --no-ri
+   gem install rails --no-rdoc --no-ri
+   --irb
+   gem install map_by_method what_methods hirb wirble --no-rdoc --no-ri
+
+   --debug
+   --http://noteslog.com/post/netbeans-6-9-1-ruby-1-9-2-rails-3-0-0-debugging/
+   gem install ruby-debug19 --platform=ruby
+   gem install ruby-debug19-ide --platform=ruby
+
+   2. for jruby 1.5.3
+   Gemfile:
+
+if defined?(JRUBY_VERSION)
+  gem 'jdbc-sqlite3'
+  gem 'activerecord-jdbc-adapter'
+  gem 'activerecord-jdbcsqlite3-adapter'
+  gem 'jruby-openssl'
+  gem 'jruby-rack'
+  gem 'warbler'
+else
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
+
+rails g jdbc
+
+   jruby 下rake test:units 有bug,
+
+   3. p110
 
 2010.10.25
 ----------

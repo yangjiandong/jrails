@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Depot::Application.config.secret_token = '869db449d176994dd770026fa0b2b668076416685cdb93b03098eb8569f250dbdccd01a109d821ba22e2e4d031f16848a814071c9070ebc963b423220a2427c5'
+Rails3App::Application.config.secret_token = '6cfb6b5c4470c2fb6afdfd5461cd6cc2739b084e6886156de9e4b02bc75803ff8fa4bc21fdb4a11d589fb88e87b3bb47ea2ca6a81eb8dc9fe14049a56432012d'
