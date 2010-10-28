@@ -13,6 +13,18 @@ JRuby1.5.3 + ROR3
 
    3. p 122
 
+   4. rspec
+   http://blog.notahat.com/posts/43
+
+   jruby -S gem install rspec-rails --no-rdoc --no-ri
+   script/rails generate rspec:install
+   config/application.rb add:
+       config.generators do |g|
+          g.test_framework :rspec
+    end
+
+   save/rspec.txt
+
 2010.10.27
 ----------
 

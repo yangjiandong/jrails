@@ -39,3 +39,7 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+group :test do
+  gem 'rspec-rails', '>= 2.0.1'
+end
