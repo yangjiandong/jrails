@@ -22,6 +22,9 @@ ok   2. jruby task not supported by jdbcsqlite3
    rails g jdbc
 
    3. jruby1.5.3 下 rake test 报错
+   jruby1.5.3 本身bug
+   http://jira.codehaus.org/browse/JRUBY-5112
+
    git clone git://github.com/jruby/jruby.git jruby.git
    cd jruby.git
    ant
