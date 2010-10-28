@@ -1,5 +1,13 @@
-ROR
-=====
+JRuby1.5.3 + ROR3
+===================
+
+2010.10.28
+----------
+
+   1. jruby and rails3
+   http://javaevangelist.blogspot.com/2010/09/jruby-and-rails-3.html
+   save/jruby_rails3_begin.txt
+   --注意gem install 时用 --no-rdoc --no-ri
 
 2010.10.27
 ----------
@@ -12,7 +20,7 @@ ROR
    jruby -S gem install tzinfo builder memcache-client rack rack-test rack-mount erubis mail text-format thor bundler i18n --no-ri --no-rdoc
    jruby -S gem install rails --no-rdoc --no-ri
    jruby -S gem install jruby-openssl jdbc-sqlite3 --no-rdoc --no-ri
-   
+
    gem install activerecord-jdbc-adapter
    gem install activerecord-jdbcsqlite3-adapter
 
