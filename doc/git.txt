@@ -36,4 +36,27 @@ git
    git branch
 
 
+   git archive -- 导出
+
+   git archive -v --format=tar HEAD |gzip > e:\hcost.tar.gz
+   tar -xvf hcost.tar.gz
+
+   branch
+   --建立分支，推到服务器上
+   git branch 3.3.2
+   git push origin 3.3.2
+
+   --其他用户checkout分支
+   git fetch (origin)
+   git checkout -b 3.3.2 origin/3.3.2
+
+   tag
+   git tag -a spring3.02
+
+   --推送到remote
+   git push origin spring3.02
+
+   --或全部tag
+   git push origin --tags
+
    --END
