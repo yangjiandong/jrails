@@ -1,22 +1,16 @@
-<h1>商品目录</h1>
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
 
-<% for product in @products %>
-    <div class="entry">
+<h1>Your Pragmatic Catalog</h1>
+
+<% @products.each do |product| %>
+  <div class="entry">
     <%= image_tag(product.image_url) %>
-    <h3><%=h product.title %></h3>
-    <%= product.description %>
-    <div class="price-line">
-    <span class="price"><%= number_to_currency(product.price,
-                                                :unit => "&pound;",
-                                                :separator => ",",
-                                                :delimiter => "") %>
-                                            </span>
-    <% form_tag url_for ( :action => 'add_to_cart'), :id => product, :remote=>true  do %>
-        <%= submit_tag "Add to Cart" %>
-    <% end %>
-    <!--
-    <%= button_to "放入购物车", :action => 'add_to_cart', :id => product %>
-    -->
+    <h3><%= product.title %></h3>
+    <%=sanitize product.description %>
+    <div class="price_line">
+      <span class="price"><%= product.price %></span>
     </div>
-    </div>
+  </div>
 <% end %>

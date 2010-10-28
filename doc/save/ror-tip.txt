@@ -1,6 +1,13 @@
 ror tip
 ==========
 
+2010.10.28
+----------
+
+   1. sanitize
+   http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html
+   This sanitize helper will html encode all tags and strip all attributes that aren’t specifically allowed.
+
 2010.10.23
 -----------
 
