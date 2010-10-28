@@ -9,6 +9,8 @@ JRuby1.5.3 + ROR3
    save/jruby_rails3_begin.txt
    --注意gem install 时用 --no-rdoc --no-ri
 
+   2. save/bundle.txt
+
 2010.10.27
 ----------
 
