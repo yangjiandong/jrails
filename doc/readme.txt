@@ -1,6 +1,23 @@
 JRuby1.5.3 + ROR3
 ===================
 
+2010.10.29
+----------
+
+   1. vim
+   http://github.com/kaichen/vim-snipmate-ruby-snippets
+   http://www.javaeye.com/topic/494254
+
+   2. 重新定义line_item 表结构
+   rails generate migration update_line_item
+   rake db:migrate
+
+   3. 直接应用depot_u 代码
+   --重建表
+   rake db:migrate
+   --装载种子数据
+   rake db:seed
+
 2010.10.28
 ----------
 

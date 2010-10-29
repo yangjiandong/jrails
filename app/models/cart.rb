@@ -1,72 +1,31 @@
 #---
-# Excerpted from "Agile Web Development with Rails, 3rd Ed.",
+# Excerpted from "Agile Web Development with Rails, 4rd Ed.",
 # published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material,
+# Copyrights apply to this code. It may not be used to create training material, 
 # courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose.
-# Visit http://www.pragmaticprogrammer.com/titles/rails3 for more book information.
+# We make no guarantees that this code is fit for any purpose. 
+# Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
-class Cart
-  attr_reader :items
+class Cart < ActiveRecord::Base
+  has_many :line_items, :dependent => :destroy
 
-  def initialize
-    @items = []
-  end
-
-  def add_product(product)
-    current_item = @items.find {|item| item.product == product}
+  def add_product(product_id)
+    current_item = line_items.where(:product_id => product_id).first
     if current_item
-      current_item.increment_quantity
+      current_item.quantity += 1
     else
-      current_item = CartItem.new(product)
-      @items << current_item
+      current_item = LineItem.new(:product_id=>product_id)
+      current_item.price = current_item.product.price
+      line_items << current_item
     end
     current_item
   end
 
-#  def add_product(product)
-#    @items << product
-#  end
-
   def total_price
-    @items.sum{|item| item.price}
+    line_items.to_a.sum { |item| item.total_price }
   end
 
   def total_items
-    @items.sum {|item| item.quantity}
+    line_items.sum(:quantity)
   end
 end
-
-#http://forums.pragprog.com/forums/66/topics/1663
-#class Cart
-#  attr_reader :items
-#
-#  def initialize
-#    @items = []
-#  end
-#
-#  def add_product(product)
-#    current_item = nil
-#    @items.each do |cartItem|
-#      if cartItem.product.id == product.id
-#        current_item = cartItem
-#        break
-#      end
-#    end
-#    if current_item
-#      current_item.increment_quantity
-#    else
-#      current_item = CartItem.new(product)
-#      @items << current_item
-#    end
-#    current_item # Return the current item so the controller
-#  end
-#
-#  def total_price
-#    @items.sum { |item| item.price }
-#  end
-#
-#  def total_items
-#    @items.sum { |item| item.quantity }
-#  end
-#end

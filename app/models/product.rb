@@ -1,29 +1,36 @@
+#---
+# Excerpted from "Agile Web Development with Rails, 4rd Ed.",
+# published by The Pragmatic Bookshelf.
+# Copyrights apply to this code. It may not be used to create training material, 
+# courses, books, articles, and the like. Contact us if you are in doubt.
+# We make no guarantees that this code is fit for any purpose. 
+# Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
+#---
 class Product < ActiveRecord::Base
   default_scope :order => 'title'
-
-  has_many :orders, :through => :line_items
   has_many :line_items
+  has_many :orders, :through => :line_items
+  #...
+  before_destroy :ensure_not_referenced_by_any_line_item
+  # ensure that there are no line items referencing this product
+  def ensure_not_referenced_by_any_line_item
+    if line_items.count.zero?
+      return true
+    else
+      errors[:base] << "Line Items present"
+      return false
+    end
+  end
 
-  validates_presence_of :title, :description, :image_url
-  validates_uniqueness_of :title
 
-  validates :image_url, :format =>{
-    :with => %r{\.(gif|jpg|png)$}i,
-    :message => 'must be a url for gif,jpg,png image.'
+  # validation stuff...
+  validates :title, :description, :image_url, :presence => true
+  validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
+# 
+  validates :title, :uniqueness => true
+  validates :image_url, :format => {
+    :with    => %r{\.(gif|jpg|png)$}i,
+    :message => 'must be a URL for GIF, JPG or PNG image.'
   }
-
-  # rails 3 的写法
-  validates :title, :length=>{:minimum => 10}
-
-  validates_numericality_of :price
-  validate :price_must_be_at_least_a_cent
-
-  def self.find_products_for_sale
-    find(:all, :order => "title")
-  end
-
-  protected
-  def price_must_be_at_least_a_cent
-    errors.add(:price, 'should be at least 0.01') if price.nil? || price < 0.01
-  end
+  validates :title, :length => {:minimum => 10}
 end

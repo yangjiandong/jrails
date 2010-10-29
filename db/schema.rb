@@ -10,15 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101028143525) do
+ActiveRecord::Schema.define(:version => 20100301000009) do
 
-  create_table "line_items", :force => true do |t|
-    t.integer  "product_id",                                :null => false
-    t.integer  "order_id",                                  :null => false
-    t.integer  "quantity",                                  :null => false
-    t.decimal  "total_price", :precision => 8, :scale => 2, :null => false
+  create_table "carts", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quantity",   :default => 1
+    t.decimal  "price"
+    t.integer  "order_id"
   end
 
   create_table "orders", :force => true do |t|
@@ -30,32 +36,14 @@ ActiveRecord::Schema.define(:version => 20101028143525) do
     t.datetime "updated_at"
   end
 
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.boolean  "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "products", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "image_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.decimal  "price",       :precision => 8, :scale => 2, :default => 0.0
-  end
-
-  create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
-    t.text     "data"
+    t.decimal  "price",       :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"

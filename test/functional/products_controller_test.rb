@@ -1,9 +1,9 @@
 #---
 # Excerpted from "Agile Web Development with Rails, 4rd Ed.",
 # published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material,
+# Copyrights apply to this code. It may not be used to create training material, 
 # courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose.
+# We make no guarantees that this code is fit for any purpose. 
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 require 'test_helper'
@@ -39,8 +39,6 @@ class ProductsControllerTest < ActionController::TestCase
     assert_redirected_to product_path(assigns(:product))
   end
 
-  # ...
-
   test "should show product" do
     get :show, :id => @product.to_param
     assert_response :success
@@ -56,7 +54,13 @@ class ProductsControllerTest < ActionController::TestCase
     assert_redirected_to product_path(assigns(:product))
   end
 
-  # ...
+  test "can't delete product in cart" do
+    assert_difference('Product.count', 0) do
+      delete :destroy, :id => products(:ruby).to_param
+    end
+
+    assert_redirected_to products_path
+  end
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
