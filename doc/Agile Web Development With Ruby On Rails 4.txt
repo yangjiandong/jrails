@@ -1,6 +1,15 @@
 Agile Web Development With Ruby On Rails 4
 =============================================
 
+2010.10.31
+------------
+
+   1. 需重新建数据库
+   rake db:migrate
+   rake db:seed
+
+  2. p132
+
 2010.10.27
 ------------
 

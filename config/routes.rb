@@ -1,4 +1,10 @@
 Rails3App::Application.routes.draw do
+  resources :line_items
+
+  resources :carts
+
+  get "store/index"
+
   resources :products
 
   # The priority is based upon order of creation:
@@ -57,4 +63,7 @@ Rails3App::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+  #
+
+  root :to=> 'store#index', :as=> 'store'
 end
