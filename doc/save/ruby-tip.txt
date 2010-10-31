@@ -1,6 +1,15 @@
 RUBY TIP
 ============
 
+2010.10.31
+-----------
+
+   1. ruby gem 安装工具
+
+      gem install gem-fast
+      -- 可显示进度条
+      -- gem install(uninsatll) softname
+
 2010.10.24
 -----------
 
