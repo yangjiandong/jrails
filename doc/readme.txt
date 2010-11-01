@@ -1,6 +1,14 @@
 ruby1.9.2+ROR3.0.1
 ==================
 
+2010.11.01
+----------
+  
+   1. ror and extjs erp
+   svn co https://extrails.svn.sourceforge.net/svnroot/extrails extrails 
+   or
+   svn checkout http://pa-manager.googlecode.com/svn/trunk/ pa-manager-read-only
+
 2010.10.28
 ----------
 
