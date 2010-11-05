@@ -9,6 +9,8 @@ TODO
    --自动绑定了系统最新rails
 
 ok   采用 bundle -- 还需实际使用
+   bundle install --without=development test
+   rake war
 
 ok   2. jruby task not supported by jdbcsqlite3
 
@@ -35,5 +37,26 @@ ok   2. jruby task not supported by jdbcsqlite3
     5. route 配置
 
 
-   --END
+    6. 主键生成策略
+    http://stackoverflow.com/questions/1200568/using-rails-how-can-i-set-my-primary-key-to-not-be-an-integer-typed-column
+    
+    uuid:
+    http://vorleakchy.com/2009/10/using-uuid-as-primary-key-in-ruby-on-rails/
+    
+    http://hlee.javaeye.com/blog/406431
+    
+class Counter < ActiveRecord::Base
+  set_table_name :counter
+
+  def self.next_primary_key(col)
+    current_value = Counter.first.read_attribute(col)
+    new_value = current_value + 1
+    Counter.connection.execute("UPDATE counter SET #{col} = #{new_value}")
+    new_value
+  end
+end
+
+?? before_validation_on_create
+
+--END
 
