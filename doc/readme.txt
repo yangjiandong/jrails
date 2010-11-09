@@ -4,6 +4,11 @@ JRuby1.5.3 + ROR3
 2010.11.07
 ----------
 
+   1. save\UUID.TXT
+
+2010.11.07
+----------
+
    1. save\jdbc.txt
 
    2. data dump

@@ -58,5 +58,10 @@ end
 
 ?? before_validation_on_create
 
+    7. 自定义表字段类型对应数据类型,
+
+    如 datetime 是否可对应成 string, created_at,updated_at
+
+
 --END
 

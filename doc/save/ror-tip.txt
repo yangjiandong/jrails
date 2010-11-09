@@ -1,6 +1,14 @@
 ror tip
 ==========
 
+2010.11.08
+----------
+
+   1. Find all by created_at in past 7 days per each day?
+
+range = "created_at #{(5.days.ago.utc...Time.now.utc).to_s(:db)}"
+Category.all(:conditions => range)
+
 2010.10.28
 ----------
 
