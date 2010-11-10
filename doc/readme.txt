@@ -22,6 +22,12 @@ JRuby1.5.3 + ROR3
    gem 'yaml_db'
    All rake tasks will then be available to you.
 
+   --for rails2.3
+   http://blog.anlek.com/2010/03/uninitialized-constant-railsrailtie/
+   in my environment.rb make sure you have both these lines in:
+   config.gem "inherited_resources", :version => "1.0.2"
+   config.gem "responders", :version => "0.4.2"
+
 2010.11.05
 ----------
 
