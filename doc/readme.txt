@@ -16,6 +16,7 @@ JRuby1.5.3 + ROR3
    rake db:data:dump   ->   Dump contents of Rails database to db/data.yml
    rake db:data:load   ->   Load contents of db/data.yml into the database
 
+   --for rails3
    https://github.com/ludicast/yaml_db 
    Simply add to your Gemfile:
    gem 'yaml_db'
