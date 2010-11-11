@@ -1,6 +1,24 @@
 JRuby1.5.3 + ROR3
 ===================
 
+2010.11.11
+----------
+
+   1. 用户认证
+   authlogic
+   https://github.com/binarylogic/authlogic
+
+   用户权限
+   cancan
+   https://github.com/ryanb/cancan
+
+   Devise
+   http://railscasts.com/episodes/209-introducing-devise
+
+   2. 
+   http://www.engineyard.com/blog/2010/monitoring-the-jvm-heap-with-jruby/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed:+engineyard+(Engine+Yard)
+
+
 2010.11.07
 ----------
 
