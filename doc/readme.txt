@@ -1,6 +1,52 @@
 JRuby1.5.3 + ROR3
 ===================
 
+2010.11.14
+----------
+
+   1. 格式化输出
+   awesome_print
+   http://gooss.org/ruby-output-format/
+   https://github.com/michaeldv/awesome_print
+
+   irb:
+   --_irbrc
+require "rubygems"
+require "ap"
+
+unless IRB.version.include?('DietRB')
+  IRB::Irb.class_eval do
+    def output_value
+      ap @context.last_value
+    end
+  end
+else # MacRuby
+  IRB.formatter = Class.new(IRB::Formatter) do
+    def inspect_object(object)
+      object.ai
+    end
+  end.new
+end
+
+   raisl log:
+   logger.ap object
+   or
+   logger.ap object, :warn
+   in template:
+   <%= ap @accounts.first %>
+
+   2. 终端下彩色输出
+   win32 下采用cygwin
+
+   $ ruby -e 'print "\e[31mABCD"' 
+   win32console 方案需本地编译
+
+2010.11.13
+----------
+
+   1. jruby 启动参数 
+   -Xmx1024m -Xms512m -Djruby.thread.pooling=true -Djruby.objectspace.enabled=false
+
 2010.11.11
 ----------
 

@@ -62,6 +62,17 @@ end
 
     如 datetime 是否可对应成 string, created_at,updated_at
 
+    
+    8. memcache 应用
+
+
+    9. jrubyc
+    
+    http://kenai.com/projects/jruby/pages/JRubyCompiler
+
+    AOT(Ahead of ● Time)
+    http://www.flatws.cn/article/program/mysql/2010-08-23/8996.html
+
 
 --END
 
