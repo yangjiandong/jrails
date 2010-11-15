@@ -1,6 +1,15 @@
 JRuby1.5.3 + ROR3
 ===================
 
+2010.11.15
+----------
+
+   1. html to haml
+   --http://net7sviluppo.com/trac/talia/attachment/wiki/TaliaInstallation/hpricot-0.8.255-jruby.gem
+   --gem install ..gem
+   --gem install ruby_parser
+   html2haml -rx login.rhtml
+
 2010.11.14
 ----------
 
