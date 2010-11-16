@@ -1,6 +1,38 @@
 JRuby1.5.3 + ROR3
 ===================
 
+2010.11.13
+----------
+   
+   1. ruby jruby 性能
+   https://github.com/acangiano/ruby-benchmark-suite.git
+   http://programmingzen.com/2010/07/19/the-great-ruby-shootout-july-2010/
+
+2010.11.12
+----------
+
+   1. memcache
+   http://docs.heroku.com/memcache
+
+   --use memcache 1.4
+   https://github.com/mperham/dalli
+
+   --memcached-client
+   https://github.com/ikai/jruby-memcache-client
+
+   --memcache 测试,memcached 性能最好
+   http://evan.tiggerpalace.com/articles/2010/10/25/memcache-client-vs-memcached-2010/
+
+   2. rails 自带cache
+# script/console
+Rails.cache.write('date', Date.today)
+Rails.cache.read('date')
+Rails.cache.fetch('time') { Time.now }
+cache = ActiveSupport::Cache.lookup_store(:mem_cache_store)
+cache.fetch('time') { Time.now }
+c = Category.first
+c.cache_key # => "categories/1-20080622195243"
+
 2010.11.11
 ----------
 
