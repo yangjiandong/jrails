@@ -1,6 +1,17 @@
 JRuby1.5.3 + ROR3
 ===================
 
+2010.11.19
+----------
+
+   1. 工作流
+   ruote
+   https://github.com/jmettraux/ruote-kit
+
+   install on jruby
+   http://groups.google.com/group/openwferu-users/browse_thread/thread/e90bf69f6ad8cf65
+   save\ruote.txt
+
 2010.11.15
 ----------
 
