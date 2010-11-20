@@ -126,7 +126,13 @@ end
      --warbler 官方版 http://caldersphere.rubyforge.org/warbler/
      http://github.com/nicksieger/warbler
 
-
+      c. 参考 http://caldersphere.rubyforge.org/warbler/Warbler/Config.html
+      已支持compile
+      warble config
+      edit config/warble.rb
+         config.features = %w(compiled executable)
+	 config.compiled_ruby_files = FileList['app/**/*.rb']
+      
    10. jruby-rack example
 
    http://github.com/nicksieger/jruby-rack/tree/master/examples/
