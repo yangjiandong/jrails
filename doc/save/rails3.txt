@@ -1,4 +1,58 @@
+rails3
+=======
+
+route
+------
+
+   http://cn.asciicasts.com/episodes/203-routing-in-rails-3 
+
+   1. match "/about" => "info#about", :as => :about  
+   没有:as参数，这个路由就是单纯的转向”/about”, 加了:as 之后，在我们的应用里面可以使用about_path或者about_url
+
+   2. 更为复杂的可选参数，例如，我们现在有一个博客应用，我们想要在网址中，用可选的年月日来过滤一段特定时间的贴子。
+   我们可以用下面的路由达到这个效果，主义括号可以嵌套起来定义多个可选参数。
+   match "/:year(/:month(/:day))" => "info#about"  
+   在view中，我们添加一些调试信息，来检查传入的参数：
+
+/app/views/info/about.html.erb
+<h1>Info#about</h1>  
+<p>Find me in app/views/info/about.html.erb</p>  
+<%= debug params %>  
+
+   下面，如果我们传入year参数，about动作会收到我们传入的值，month和day参数也是如此
+
+   :constraints可以传入一个hash来限定匹配。以下的例子用四个数字来限定年，两个数字来限定月和日。
+   match "/:year(/:month(/:day))" => "info#about", :constraints => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }  
+   
+   3. 例如，我们可以用user_agent参数来限制一些浏览器的访问，以Firefox为例。
+   match "/secret" => "info#about", :constraints => { :user_agent => /Firefox/ }  
+   如果我们用Safari, Chrome或者Opera访问页面，我们会看到一个匹配错误。但是Firefox可以正常浏览。
+
+   4. 我们也可以添加一些更有用处的constraint比如主机名。
+   match "/secret" => "info#about", :constraints => { :host => /localhost/ }  
+   使用这个constraint，我们可以通过http://localhost:3000/secret来浏览网页，但是用ip地址将会返回错误( http://127.0.0.1/secret )，
+   
+   如果我们有多个路由同时使用一个constraint，会造成很多代码的重复。我们可以用constraints方法把这些路由放到一个块中来降低代码重复。
+
+constraints :host => /localhost/ do  
+  match "/secret" => "info#about"  
+  match "/topsecret" => "info#about"  
+end  
+
+   5.
+
+generator
+----------
+
+   1. rails g controller info about
+
+   建立一个info控制器和about动作来展示可选参数。
+   Rails 3支持用rails g来作为rails generate的快捷方式。
+
+
 rails 3 activerecord new interface
+------------------------------------
+
 http://1985.javaeye.com/blog/639837
 
 文章分类:Ruby编程
