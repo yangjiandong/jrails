@@ -1,6 +1,12 @@
 JRuby1.5.3 + ROR3
 ===================
 
+2010.11.24
+----------
+
+   1. rails 3 route
+   save/Ruby on Rails Guides  Rails Routing from the Outside In.htm
+
 2010.11.20
 ----------
 
