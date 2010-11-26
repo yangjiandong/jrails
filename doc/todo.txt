@@ -69,6 +69,8 @@ end
     
     8. memcache 应用
 
+    有空用下https://github.com/ikai/jruby-memcache-client 
+
 
 ok    9. jrubyc
     
@@ -82,7 +84,10 @@ ok    9. jrubyc
    10. 并发性
 
    http://www.blog.wordaligned.com/2010/02/17/concurrency-models-in-jruby-using-jetlang/
-   jetLang
+   
+   gem install jretLang
+   -- require 'java'
+   -- require 'jretlang'
 
 
 --END
