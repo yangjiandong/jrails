@@ -35,6 +35,10 @@ ok   2. jruby task not supported by jdbcsqlite3
 
 
     5. route 配置
+    
+    save\Ruby on Rails Guides  Rails Routing from the Outside In.htm
+
+    --还需多实践
 
 
     6. 主键生成策略
@@ -66,12 +70,19 @@ end
     8. memcache 应用
 
 
-    9. jrubyc
+ok    9. jrubyc
     
     http://kenai.com/projects/jruby/pages/JRubyCompiler
 
     AOT(Ahead of ● Time)
     http://www.flatws.cn/article/program/mysql/2010-08-23/8996.html
+
+    --暂时不需要,werble已提供 compile,jar等功能 
+
+   10. 并发性
+
+   http://www.blog.wordaligned.com/2010/02/17/concurrency-models-in-jruby-using-jetlang/
+   jetLang
 
 
 --END

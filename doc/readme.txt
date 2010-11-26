@@ -1,5 +1,12 @@
-JRuby1.5.3 + ROR3
+JRuby + ROR3
 ===================
+
+2010.11.26
+----------
+
+   1. 初学ruby,掌握的方法,有空多看看,体会一下
+   save\begin_ruby.txt
+   http://www.cnblogs.com/wanana/archive/2010/02/05/1664104.html  
 
 2010.11.24
 ----------
