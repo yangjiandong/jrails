@@ -1,6 +1,17 @@
 JRuby + ROR3
 ===================
 
+2010.11.30
+----------
+
+   1. 基于web飞信接口的飞信应答机器人
+   http://methodmissing.javaeye.com/blog/824993
+   save\fetion-robot.rb
+   --jruby -rubygems fetion-robot.rb 运行没成功
+
+   2. save\get_gmail.rb 
+   取gmail,运行也没成功,认证不了.
+
 2010.11.26
 ----------
 
