@@ -1,6 +1,13 @@
 JRuby + ROR3
 ===================
 
+2010.12.02
+----------
+
+   1. Ruby语言轻松编写网页蜘蛛 
+   save\nokogiri_test.rb
+   gem install nokogiri --pre --no-rdoc --no-ri  
+
 2010.11.30
 ----------
 
