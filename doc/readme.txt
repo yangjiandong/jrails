@@ -1,6 +1,19 @@
 JRuby + ROR3
 ===================
 
+210.12.06
+----------
+
+   1. mongrel & apache on jruby
+   http://www.javaeye.com/wiki/rails_weekly/1811-rails-questions-weekly-3-mongrel-and-apache-on-jruby 
+   save/mongrel_apache_jruby.txt
+
+2010.12.03
+----------
+
+   1. comet
+   https://github.com/maccman/juggernaut 
+
 2010.12.02
 ----------
 
